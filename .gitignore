@@ -2,6 +2,6 @@
 *
 !.gitignore
 # ... except sublime preferences
-!Preferences.sublime-settings
+!User/Preferences.sublime-settings
 # package info
-!Package Control.sublime-settings
+!User/Package Control.sublime-settings
