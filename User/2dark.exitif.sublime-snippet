@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+If $1
+	Return
+EndIf
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>exi</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.2dark_script</scope>
+	 <description>2dark exit if condition</description>
+</snippet>

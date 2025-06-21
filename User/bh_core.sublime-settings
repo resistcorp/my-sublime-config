@@ -1,0 +1,63 @@
+{
+    "high_visibility_enabled_by_default": true,
+    "user_brackets": [
+        {
+            "name": "2dark_function",
+            "open": "^(Event|Process|Variables)(?:[^\n\r]*$)",
+            "close": "([\n\r])(?=^Event|^Process|^Variables|\\Z)",
+            "scope_exclude": ["string", "comment"],
+            "style": "default",
+            "context": "*.2dark_script",
+            "language_filter": "blacklist",
+            "language_list": ["2Dark Script"],
+            "sub_bracket_search": "true",
+            "sub_bracket_search": "true",
+            "enabled": true
+        },
+        /*{
+            "name": "2dark_section",
+            "open": "((^'.*\n)+)",
+            "close": "([\n\r](?=('.*\n)+",
+            "style": "default",
+            "sub_bracket_search": "true",
+            "enabled": true
+        },*/
+        {
+            "name": "2dark_if",
+            "open": "(^[^\\S\n]*If)",
+            "close": "(EndIf)",
+            "scope_exclude": ["string", "comment"],
+            "style": "curly",
+            "context": "*.2dark_script",
+            "language_filter": "blacklist",
+            "language_list": ["2Dark Script"],
+            "sub_bracket_search": "true",
+            "enabled": true
+        },
+        {
+            "name": "2dark_switch",
+            "open": "(^[^\\S\n]*Switch)",
+            "close": "(EndSwitch)",
+            "style": "curly",
+            "scope_exclude": ["string", "comment"],
+            "language_filter": "blacklist",
+            "language_list": ["2Dark Script"],
+            "context": "*.2dark_script",
+            "context": "*.2dark_script",
+            "sub_bracket_search": "true",
+            "enabled": true
+        },
+        {
+            "name": "2dark_Loop",
+            "open": "^[^\\S\n]*(ListFor|For)",
+            "close": "(Next)",
+            "style": "curly",
+            "scope_exclude": ["string", "comment"],
+            "language_filter": "blacklist",
+            "language_list": ["2Dark Script"],
+            "context": "*.2dark_script",
+            "sub_bracket_search": "true",
+            "enabled": true
+        }
+    ]
+}

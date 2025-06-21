@@ -7,3 +7,7 @@
 !Package Control.sublime-settings
 # keymaps
 !*.sublime-keymap
+
+#2Dark snippets and syntax
+!*2dark*
+!bh_core.sublime-settings

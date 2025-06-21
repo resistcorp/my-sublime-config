@@ -1,0 +1,130 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: 2Dark Script
+scopeName: source.2dark_script
+fileTypes: []
+uuid: 0da65be4-5aac-4b6f-8071-1aadb970b8d9
+
+patterns:
+- name: constant.numeric.2dark_script
+  match: (?i)\b[\d.]+\b
+
+- name: invalid.deprecated.2dark_script
+  match: (?i)\b(LeftHandCategory|Exit|SetEventHearAttributes|Attribute|SetVisionDistance|SetVisionAperture|SetEarDistance|ReplaceAttribute|Attribute|AttributesContains|Wait_GotoFlag|Wait_GotoFlagPath|Wait_FollowPath|RightHandCategory|IsInHand|DiscoverItem|Type|SourceType|TriggerType)\b
+
+- name: support.function.2dark_script
+  match: (?i)\b(Version)\b
+
+# can't make that work
+#- name: invalid.2dark_script
+#  match: (?i)(?<=^\s*)([\w\_]+)(?<!(Int|String|Entity|Float)\s*\1)
+#
+#- name: variable.parameter.2dark_script
+#  match: \@(:?"[\w\_\-]+"|[\w\_\-]+)
+#
+#- name: variable.parameter.2dark_script
+#  match: \@\(.*?\)
+
+- name: markup.bold
+  begin: (@\()
+  beginCaptures:
+    '1': {name: support.function.2dark_script}
+  end: (\))
+  endCaptures:
+    '1': {name: support.function.2dark_script}
+  patterns:
+  - include: $self
+  - name: support.other.2dark_script
+    match: .
+
+# noms reservés
+- name: variable.parameter.2dark_script
+  match: ("Smith"|"Exit")
+
+- name: variable.parameter.2dark_script
+  match: (?i)\b(Wait)\b
+  captures:
+    '1': {name: variable.parameter.2dark_script}
+
+- name: string.quoted.2dark_script
+  match: ("[^"]*")
+
+- name: 2dark_script
+  match: (?i)^\s*(Event|Process)\s("[\w\_\-]+")\s*('.*)?$
+  captures:
+    '1': {name: storage.type.function.2dark_script}
+    '2': {name: string.quoted entity.name.function.2dark_script}
+    '3': {name: comment.2dark_script}
+
+- name: 2dark_script
+  match: (?i)^\s*(Variables)\s*('.*)?$
+  captures:
+    '1': {name: storage.type.function.2dark_script}
+    '2': {name: comment.2dark_script}
+
+- name: 2dark_script
+  match: (?i)^\s*(Return)\s*('.*)?$
+  captures:
+    '1': {name: storage.type.function.2dark_script}
+    '2': {name: comment.2dark_script}
+
+- name: 2dark_script
+  match: (?i)^\s*(Restart)\s*
+  captures:
+    '1': {name: storage.type.function.2dark_script}
+
+- name: keyword.control.2dark_script
+  match: (?i)^\s*\b(If|Else|EndIf|Switch|EndSwitch|Case|Default|Next|ListFor|For|While|Wend|Include|ClassScript)\b
+
+- name: keyword.control.2dark_script
+  match: (?i)\b(To|Step)\b
+
+- name: entity.name.function.2dark_script
+  match: (?i)^\s*\b(Wait_)(Anim|Angle|Sound|SpatialSound|FadeIn|FadeOut|OnScreen|Goto|GotoPath|FollowEntity|FollowEntityPath|AngleObject)\b
+  captures:
+    '1': {name: variable.parameter.2dark_script}
+
+- name: entity.name.function.2dark_script
+  match: (?i)\b(Stop_)(WaitSteering)\b
+  captures:
+    '1': {name: variable.parameter.2dark_script}
+
+- name: source.2dark_script
+  begin: (?i)\b((Substring|WaitStatus|Format|TargetAngle|Angle|Anim|Speed|GetPickupOwner|GetViewList|LifePoints|MaxSpeed|StringContains|ListContains|Attributes|ListIndex|ListCount|Rnd|isOnScreen|EventParameter|Distance|IsInventory|State|GetEtage|Room|IsAlive|#|Kind|RightHand|LeftHand|PickupCategory|Process|FollowDistance|GetEntityLightList|IsProcess)\b\s*\()
+  beginCaptures:
+    '1': {name: support.function.2dark_script}
+  end: (\))
+  endCaptures:
+    '1': {name: support.function.2dark_script}
+  patterns:
+  - include: $self
+  - name: support.other.2dark_script
+    match: .
+
+- name: invalid.deprecated.2dark_script
+  match: (?i)\b((Substring|WaitStatus|Format|TargetAngle|Angle|Anim|Speed|GetPickupOwner|GetViewList|LifePoints|MaxSpeed|StringContains|ListContains|Attributes|ListIndex|ListCount|Rnd|isOnScreen|EventParameter|Distance|IsInventory|State|GetEtage|Room|IsAlive|#|Kind|RightHand|LeftHand|PickupCategory|Process|FollowDistance|GetEntityLightList|IsProcess)\b\s*[^\(])
+
+- name: entity.name.function.2dark_script
+  match: (?i)^\s*\b(SetEvent)(Enter|Exit|View|BlockedPath|ColPlayer|ColActor|Follow|Hit|Death|EnterRoom|HearSound|SeePlayer|SeeActor|SeeKid|Lit|UnLit|PlayerLit|Timer|Lost|EntityLight)\b
+  captures:
+    '1': {name: variable.parameter.2dark_script}
+    '2': {name: entity.name.function.2dark_script}
+
+- name: entity.name.function.2dark_script
+  match: (?i)^\s*\b(OpenProp|ScriptPlayerControl|SetCameraTarget|AmbientSoundStart|AmbientSoundVolume|AmbientSoundStop|EventOff|SetLifePoints|CallClassEvent|PortalTrigger|Immortal|UseRightHandPickup|SetHearAttributes|SetKind|CallEvent|SetAttributes|MusicVolume|ListReplace|ListRemove|CloseProp|RunProcess|Log|StoreItem|KillProcess|SetVariable|Message|DialogBox|TextBox|Bubble|Picture|SpatialSound|Sound|OpenDoor|CloseDoor|OpendDoor|LockPath|BlockedPath|SetPhysicMass|PickupItem|DropItem|SetEntityLightAttributes|TakeItem|RemoveItem|EquipRight|EquipLeft|SetState|Sleep|WakeUp|Teleport|Hit|SetAnim|SetAnimOnce|SetAnimStop|(?<=Wait_)Anim|SetViewDistance|SetHearDistance|SetViewAperture|SetViewAttributes|SetFollowDistance|SetEventParameter|SetSpeed|SetAngle|SetAngleObject)\b
+#|(?<=Wait_)Angle|(?<=Wait_)Goto|(?<=Wait_)GotoPath|(?<=Wait_)FollowEntity|(?<=Wait_)AngleObject|FollowEntityPath
+#SetEventEnter|SetEventExit|SetEventColPlayer|SetEventColActor|SetEventFollow|SetEventHit|SetEventDeath|SetEventEnterRoom|SetEventHearSound|SetEventSeePlayer|SetEventSeeActor|SetEventSeeKid|SetEventLit|SetEventUnLit|SetEventPlayerLit|SetEventTimer|SetEventLost|
+
+- name: variable.parameter.2dark_script
+  match: (?i)\b(SourceName|SourceEntity|SourceParameter|SourceKind|TriggerName|TriggerEntity|TriggerParameter|TriggerKind|EventInfo)\b
+
+- name: storage.type.2dark_script
+  match: (?i)\b(int|string|entity|float|list)\b
+
+- name: keyword.operator.2dark_script
+  match: (?i)(\+|\-|\*|/|\=|\<\>|\<|\>|\>\=|\<\=|~\=)
+
+- name: comment.2dark_script
+  match: ('.*$)
+
+...
