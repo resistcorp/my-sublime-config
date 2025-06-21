@@ -1,0 +1,20 @@
+{
+	"cmd": ["jai", "$file"],
+	"selector" : "source.jai",
+	"file_regex" : "^(\\S*\\.jai):(\\d+)\\,(\\d+)\\: (Error|Warning)\\: (.*)$",
+	"cancel": {"kill": true},
+	"variants": [
+		{
+			"name" : "Release build", 
+			"cmd": ["jai", "$file", "-release", "-exe", "$file_base_name", "-output_path", "$project_path/build"],
+		},
+		{
+			"name": "Debug build", 
+			"cmd": ["jai", "$file", "-debug", "-exe", "$file_base_name", "-output_path", "$project_path/build"],
+		},
+		{
+			"name" : "Interactive debug (not completely functionnl yet)", 
+			"cmd": ["jai", "$file", "-debugger", "-exe", "$file_base_name", "-output_path", "$project_path/build"],
+		}
+	],
+}
