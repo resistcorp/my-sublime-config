@@ -1,0 +1,58 @@
+{
+	"Seti_in_4_a_treat": true,
+    "tab_size" : "2",
+    "translate_tabs_to_spaces": true,
+    "use_tab_stops" : true,
+    "auto_complete_delay" : 250,
+	"Seti_rainbow": false,
+	"Seti_sb_wild": false,
+	"auto_complete": false,
+	"bold_folder_labels": true,
+	"caret": "#F8F800",
+	"caret_style": "phase",
+	"fade_fold_buttons": false,
+	"default_encoding": "UTF-8",
+	"fallback_encoding": "Western (Windows 1252)",
+	"font_size": 18,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"ActionScript",
+		"Alignment",
+		"AppleScript",
+		"Babel",
+		"C++ Starting Kit",
+		"Case Conversion",
+		"Exalt",
+		"Indent XML",
+		"Java Velocity",
+		"JavaIME",
+		"LogView",
+		"LSP-copilot",
+		"Minify",
+		"RemoveDuplicateLines",
+		"RestructuredText",
+		"RustFormat",
+		"Tabnine",
+		"Unity Completions Light",
+		"Unity3D",
+		"Unity3D Reference Search",
+		"Vintage",
+	],
+	"overlay_scroll_bars": "enabled",
+	"show_encoding": true,
+	"wide_caret": true,
+
+	// Set to true to insert spaces when tab is pressed
+	/*"translate_tabs_to_spaces": true,*/
+	/*"tab_size" : "2",*/
+	/*"use_tab_stops" : true,*/
+	"indent_guide_options" : [
+		"draw_normal",
+		"draw_active"
+	],
+	"detect_indentation": false,
+	"theme": "auto",
+	"index_files": false,
+}

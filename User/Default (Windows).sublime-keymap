@@ -1,0 +1,98 @@
+[
+    { "keys": ["ctrl+alt+down"], "command": "duplicate_lines" },
+    { "keys": ["ctrl+alt+up"], "command": "duplicate_lines", "args": { "up": true } },
+
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"} },
+	{ "keys": ["ctrl+shift+j"], "command": "prettify_json" },
+
+	{ "keys": ["alt+ctrl+right"], "command": "find_under" },
+
+	{ "keys": ["ctrl+left"], "command": "move", "args": {"by": "words", "forward": false} },
+	{ "keys": ["ctrl+right"], "command": "move", "args": {"by": "word_ends", "forward": true} },
+	{ "keys": ["ctrl+shift+left"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+	{ "keys": ["ctrl+shift+right"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+
+	{ "keys": ["alt+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
+	{ "keys": ["alt+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+	{ "keys": ["alt+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+	{ "keys": ["alt+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+
+	{ "keys": ["alt+ctrl+left"], "command": "find_under_prev" },
+	{ "keys": ["alt+ctrl+shift+right"], "command": "find_under_expand" },
+	{ "keys": ["alt+ctrl+shift+left"], "command": "find_under_expand_skip" },
+
+	{ "keys": ["ctrl+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["ctrl+down"], "command": "select_lines", "args": {"forward": true} },
+
+	{ "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
+	{ "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"} },
+
+    // Singlequote for lisp
+    { "keys": ["'"], "command": "insert_snippet", "args": {"contents": "'"}, "context":
+        [
+            { "key": "selector", "operator": "equal", "operand": "source.2dark_script"}
+        ]
+    },
+
+    // Singlequote all lines
+    { "keys": ["'"], "command": "run_macro_file", "args": {"file": "Packages/User/comment_2dark.sublime-macro"}, "context":
+        [
+           { "key": "selection_empty", "operator": "equal", "operand": false },
+           { "key": "num_selections", "operator": "equal", "operand": 1 },
+           { "key": "selector", "operator": "equal", "operand": "source.2dark_script"}
+        ]
+    },
+
+    { "keys": ["shift+ctrl+/"], "command": "run_macro_file", "args": {"file": "Packages/User/comment_2dark.sublime-macro"}, "context":
+        [
+           { "key": "selection_empty", "operator": "equal", "operand": false },
+           { "key": "num_selections", "operator": "equal", "operand": 1 },
+           { "key": "selector", "operator": "equal", "operand": "source.2dark_script"}
+        ]
+    },
+
+    // Select text including brackets
+    {
+        "keys": ["shift+ctrl+m"],
+        "command": "bh_key",
+        "args":
+        {
+            "no_outside_adj": true,
+            "lines" : true,
+            "plugin":
+            {
+                "type": ["__all__"],
+                "command": "bh_modules.bracketselect",
+                "args": {"always_include_brackets": true}
+            }
+        }
+    },
+    // Fold contents between brackets
+    {
+        "keys": ["ctrl+k", "shift+ctrl+f"],
+        "command": "bh_key",
+        "args":
+        {
+            "plugin": {
+                "type": ["__all__"],
+                "command" : "bh_modules.foldbracket"
+            }
+        }
+    },
+    { "keys": ["ctrl+k", "ctrl+f"], "command": "fold"},
+    { "keys": ["ctrl+k", "ctrl+g"], "command": "unfold"},
+
+    { "keys": ["f5"], "command": "revert"},
+
+    { "keys": ["ctrl+,"], "command": "insert", "args": {"characters": " + \",\" + "} },
+    { "keys": ["ctrl+shift+,"], "command": "insert", "args": {"characters": " + \" : \" + "} },
+    { "keys": ["ctrl+shift+8"], "command": "insert", "args": {"characters": " + \"_\" + "} },
+
+
+	{ "keys": ["alt+ctrl+w"], "command": "save_as_win" },
+
+
+    { "keys": ["alt+ctrl+m"], "command": "bh_toggle_high_visibility" },
+	{ "keys": ["alt+c"], "command": "show_panel", "args": {"panel": "console", "toggle": true} }
+]

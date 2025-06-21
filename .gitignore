@@ -1,7 +1,8 @@
-# Ignore everything...
-*
+*.*
+*/*
+*/.gitignore
+# ... except my User folder
+!User/*
+#and the current file
 !.gitignore
-# ... except sublime preferences
-!User/Preferences.sublime-settings
-# package info
-!User/Package Control.sublime-settings
+# Ignore everything...
