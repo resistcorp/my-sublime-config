@@ -16,6 +16,8 @@
 	"font_size": 18,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
+    "relative_line_numbers" : true,
+    "highlight_line" : true,
 	"ignored_packages":
 	[
 		"ActionScript",
